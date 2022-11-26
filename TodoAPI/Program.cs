@@ -49,7 +49,7 @@ app.MapPost("/todo", async (TodoDb db, Todo todo) =>
 .WithName("Add Todo")
 .WithOpenApi();
 
-app.MapPut("/todoitems/{id}", async (int id, Todo inputTodo, TodoDb db) =>
+app.MapPut("/todo/{id}", async (int id, Todo inputTodo, TodoDb db) =>
 {
     var todo = await db.Todos.FindAsync(id);
 
@@ -69,7 +69,7 @@ app.MapPut("/todoitems/{id}", async (int id, Todo inputTodo, TodoDb db) =>
 .WithName("Update Todo")
 .WithOpenApi();
 
-app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
+app.MapDelete("/todo/{id}", async (int id, TodoDb db) =>
 {
     var todo = await db.Todos.FindAsync(id);
 
